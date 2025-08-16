@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>PokeAPI データ表示</title>
+</head>
+<body>
+  <h1>ポケモン情報</h1>
+  <div id="pokemon"></div>
+
+  <script>
+    async function getPokemonData(pokemonName) {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      const data = await response.json();
+      console.log(data); // コンソール確認用
+
+      // HTMLに表示
+      document.getElementById('pokemon').innerHTML = `
+        <h2>${data.name}</h2>
+        <img src="${data.sprites.front_default}" alt="${data.name}">
+        <p>高さ: ${data.height}</p>
+        <p>重さ: ${data.weight}</p>
+      `;
+    }
+
+    getPokemonData('ditto');
+  </script>
+</body>
+</html>

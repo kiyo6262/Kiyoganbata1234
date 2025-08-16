@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>mission4-3</title>
+</head>
+<!--配列を用意し文字列を代入する
+配列の要素を取り出す際に乱数で指定する-->
+<body>
+    <div id="luck">"ここに表示</div>
+    <script>
+        var array = new Array("大吉","中吉","小吉","凶");
+        
+        var number1 = Math.random();
+        var number2 = number1 * 4;
+        var lucky = Math.floor(number2);
+        var result = array[lucky];
+
+        
+        var object = document.getElementById("luck");
+        object.innerText = result;
+    </script>
+</body>
+</html>
